@@ -1,0 +1,73 @@
+.sidebar {
+  width: 250px;
+  transition: .5s;
+}
+
+@media (max-width: 771px) {
+  main>div.position-relative {
+    width: 95px;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    position: absolute !important;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  main>div.position-relative {
+    position: absolute !important;
+    left: -100px;
+    transition: .5s;
+  }
+  main>div.position-relative.show {
+    left: 0px;
+  }
+  .navbar-toggler {
+    display: block !important;
+  }
+  .b-example-divider {
+    display: none;
+  }
+  .sidebar span {
+    display: block !important;
+  }
+}
+
+.sidebar.small-sidebar {
+  overflow: hidden;
+  width: 80px;
+}
+
+.sidebar>button:first-of-type {
+  width: fit-content;
+  margin-left: auto;
+}
+
+.sidebar.small-sidebar>button:first-of-type {
+  margin: 0 auto;
+}
+
+.sidebar.small-sidebar>button:first-of-type i::before {
+  content: "\f134";
+}
+
+.sidebar .bi-lightning-charge::before {
+  transition: .5s;
+  rotate: 360deg;
+}
+
+.sidebar.small-sidebar .bi-lightning-charge::before {
+  transform: rotateY(360deg);
+  content: "\f46c";
+}
+
+.veiw-table td {
+  padding: 10px;
+}
+
+tbody td {
+  padding: 0.5rem 3px !important;
+}
+
