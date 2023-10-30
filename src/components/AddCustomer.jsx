@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { createCustomersAction } from "./store/customersReducer";
+import { createCustomersAction } from "../store/customersReducer";
 
 function AddCustomer() {
   const dispatch = useDispatch();
   const customersData = useSelector(state => state.customers);
   let customerData = {
-    id: customersData.length + 1
+    id: customersData[customersData.length - 1].id + 1
   };
   const submitHandler = () => {
     dispatch(createCustomersAction("add", customerData));

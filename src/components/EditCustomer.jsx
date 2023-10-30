@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { createCustomersAction } from "./store/customersReducer"
+import { createCustomersAction } from "../store/customersReducer"
 
 function EditCustomer() {
   const {customerId} = useParams();
   const dispatch = useDispatch();
   let customersData = useSelector(state => state.customers);
-  const customerData = customersData[customerId - 1];
+  const [customerData] = customersData.filter(cust => {
+    return +cust.id === +customerId;
+  });
   const [firstName, setFirstName] = useState(customerData.firstName);
   const [lastName, setLastName] = useState(customerData.lastName);
   const [telephone, setTelephone] = useState(customerData.telephone);

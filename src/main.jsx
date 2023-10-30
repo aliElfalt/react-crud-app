@@ -8,7 +8,7 @@ import "./bootstrap-icons-1.11.1/bootstrap-icons.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "./index.css"
 import "./bootstrap-sidebars.js"
-import { store } from './components/store/store.js'
+import { store } from "./store/store"
 import { Provider } from "react-redux"
 
 

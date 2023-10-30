@@ -3,7 +3,10 @@ import { useSelector } from "react-redux"
 
 function VeiwCustomer() {
   const {customerId} = useParams();
-  const customer = useSelector(state => state.customers)[customerId - 1];
+  const customers = useSelector(state => state.customers);
+  const [customer] = customers.filter(cust => {
+    return +cust.id === +customerId;
+  });
   return (
     <section className="mx-2 mt-5 text-capitalize">
       <nav aria-label="breadcrumb">

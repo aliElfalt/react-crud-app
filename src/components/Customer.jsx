@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { createCustomersAction } from "./store/customersReducer";
+import { createCustomersAction } from "../store/customersReducer";
 
-function Customer(props) {
+function Customer({customer}) {
   const [show, setShow] = useState(true);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
-  const {customer} = props;
   const dispatch = useDispatch();
   const deleteHandler = () => {
     setShow(false);

@@ -1,7 +1,7 @@
 import Theme from "./Theme"
 import { useDispatch, useSelector } from "react-redux"
-import { searchAction } from "./store/searchReducer"
-import { sidebarAction } from "./store/sidebarReducer"
+import { searchAction } from "../store/searchReducer"
+import { sidebarAction } from "../store/sidebarReducer"
 
 function Navbar() {
   const sidebarState = useSelector(state => state.sidebar);

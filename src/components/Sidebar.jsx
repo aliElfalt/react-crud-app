@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { sidebarAction } from "./store/sidebarReducer";
+import { sidebarAction } from "../store/sidebarReducer";
 
 function Sidebar() {
   const dispatch = useDispatch();
