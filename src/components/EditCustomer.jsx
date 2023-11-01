@@ -10,6 +10,7 @@ function EditCustomer() {
   const [customerData] = customersData.filter(cust => {
     return +cust.id === +customerId;
   });
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [firstName, setFirstName] = useState(customerData.firstName);
   const [lastName, setLastName] = useState(customerData.lastName);
   const [telephone, setTelephone] = useState(customerData.telephone);
@@ -113,23 +114,26 @@ function EditCustomer() {
       </div>
       <div className="col-12">
         <Link to="/" className="save-changes btn btn-primary me-3" onClick={saveChangesHandler}>Save Changes</Link>
-        <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Customer</button>
-        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h1 className="modal-title fs-5" id="exampleModalLabel">Delete Customer</h1>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div className="modal-body">
-                Are You sure
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <Link to="/" type="button" className="delete btn btn-danger" onClick={deleteHandler}>Delete Customer</Link>
+        <button type="button" className="btn btn-danger" onClick={() => setShowDeletePopup(true)}>Delete Customer</button>
+        <div className={showDeletePopup ? "" : "d-none"}>
+          <div className={`text-start modal fade ${showDeletePopup ? "d-block show" : "" }`}>
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h1 className="modal-title fs-5" id="exampleModalLabel">Delete Customer</h1>
+                  <button type="button" className="btn-close" onClick={() => setShowDeletePopup(false)}></button>
+                </div>
+                <div className="modal-body">
+                  Are You sure
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" onClick={() => setShowDeletePopup(false)}>Close</button>
+                  <Link to="/" className="delete btn btn-danger" onClick={deleteHandler}>Delete Customer</Link>
+                </div>
               </div>
             </div>
           </div>
+          <div className={`modal-backdrop fade ${showDeletePopup ? "show" : "d-none"}`}></div>
         </div>
       </div>
     </form>
